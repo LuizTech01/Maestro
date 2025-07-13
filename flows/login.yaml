@@ -1,0 +1,66 @@
+
+appId: com.swaglabsmobileapp
+---
+
+#login com usuario valido
+- launchApp
+- tapOn: "username"
+- inputText: "standard_user"
+- tapOn: "password"
+- inputText: "secret_sauce"
+- tapOn: "login"
+- assertVisible: "PRODUCTS"
+- stopApp
+
+#login com usuario bloqueado
+- launchApp
+- tapOn: "username"
+- inputText: "locked_out_user"
+- tapOn: "password"
+- inputText: "secret_sauce"
+- tapOn: "login"
+- assertVisible: "Sorry, this user has been locked out."
+- stopApp
+
+#login com problema
+- launchApp
+- tapOn: "username"
+- inputText: "problem_user"
+- tapOn: "password"
+- inputText: "secret_sauce"
+- tapOn: "login"
+- tapOn: "Sauce Labs Backpack"
+- assertVisible: "$9.99"
+- stopApp
+
+#Login com usuario correto / autofill
+- launchApp
+- tapOn: "standard_user"
+- tapOn: "login"
+- assertVisible: "PRODUCTS"
+- stopApp
+
+#Login com usuario bloqueado / autofill
+- launchApp
+- tapOn: "locked_out_user"
+- tapOn: "login"
+- assertVisible: "Sorry, this user has been locked out."
+- stopApp
+
+#Login de usuarico com problema / autofill
+- launchApp
+- tapOn: "problem_user"
+- tapOn: "login"
+- tapOn: "Sauce Labs Backpack"
+- assertVisible: "$9.99"
+- stopApp
+
+#Login com senha incorreta
+- launchApp
+- tapOn: "username"
+- inputText: "standard_user"
+- tapOn: "password"
+- inputText: "1234S"
+- tapOn: "login"
+- assertVisible: "Username and password do not match any user in this service."
+- stopApp
