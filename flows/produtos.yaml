@@ -1,0 +1,67 @@
+appId: com.swaglabsmobileapp
+---
+
+#Reorganiza items
+- launchApp
+- tapOn: "standard_user"
+- tapOn: "login"
+- assertVisible: "PRODUCTS"
+- tapOn:
+    point: "81%,13%"
+- stopApp
+
+#Reorganiza items por nome de A a Z
+- launchApp
+- tapOn: "standard_user"
+- tapOn: "login"
+- assertVisible: "PRODUCTS"
+- tapOn:
+    point: "93%,13%"
+- tapOn: Name (A to Z)
+- tapOn:
+    text: "test-Item"
+    index: 0
+- assertVisible: "sauce labs backpack"
+- stopApp
+
+#Reorganiza items por nome de Z a A
+- launchApp
+- tapOn: "standard_user"
+- tapOn: "login"
+- assertVisible: "PRODUCTS"
+- tapOn:
+    point: "93%,13%"
+- tapOn: Name (Z to A)
+- tapOn:
+    text: "test-Item"
+    index: 0
+- assertVisible: "Test.allTheThings() T-Shirt (Red)"
+- stopApp
+
+#Reorganiza items do menor ao maior preco
+- launchApp
+- tapOn: "standard_user"
+- tapOn: "login"
+- assertVisible: "PRODUCTS"
+- tapOn:
+    point: "93%,13%"
+- tapOn: "Price (low to high)"
+- tapOn:
+    text: "test-Item"
+    index: 0
+- assertVisible: "$7.99"
+- stopApp
+
+#Reorganiza items do maior ao menor preco
+- launchApp
+- tapOn: "standard_user"
+- tapOn: "login"
+- assertVisible: "PRODUCTS"
+- tapOn:
+    point: "93%,13%"
+- tapOn: "Price (high to low)"
+- tapOn:
+    text: "test-Item"
+    index: 0
+- assertVisible: "$49.99"
+- stopApp
