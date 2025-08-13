@@ -1,0 +1,166 @@
+appId: com.swaglabsmobileapp
+---
+
+#Finalizando uma compra
+- launchApp
+- tapOn: "standard_user"
+- tapOn: "login"
+- assertVisible: "PRODUCTS"
+- tapOn:
+    below:
+        text: "Sauce Labs Backpack"
+    text: "test-ADD TO CART"
+- tapOn:
+    below:
+        text: "Sauce Labs Bike Light"
+    text: "test-ADD TO CART"
+- assertVisible: "Sauce Labs Backpack"
+- assertVisible: "Sauce Labs Bike Light"
+- tapOn:
+    point: "93%,5%"
+- scrollUntilVisible:
+    element: "test-CHECKOUT"
+    direction: down
+- tapOn: "test-CHECKOUT"
+- tapOn: "First Name"
+- inputText: "Teste"
+- tapOn: "Last Name"
+- inputText: "Silveira"
+- tapOn: "Zip/Postal Code"
+- inputText: "12345"
+- tapOn: "test-CONTINUE"
+- assertVisible: "CHECKOUT: OVERVIEW"
+- scrollUntilVisible:
+    element: "test-FINISH"
+    direction: down
+- tapOn: "test-FINISH"
+- assertVisible: "CHECKOUT: COMPLETE!"
+- assertVisible: "THANK YOU FOR YOU ORDER"
+- tapOn: "test-BACK HOME"
+- assertVisible: "PRODUCTS"
+- stopApp
+
+#Comprando sem informar first name
+- launchApp
+- tapOn: "standard_user"
+- tapOn: "login"
+- assertVisible: "PRODUCTS"
+- tapOn:
+    below:
+        text: "Sauce Labs Backpack"
+    text: "test-ADD TO CART"
+- tapOn:
+    below:
+        text: "Sauce Labs Bike Light"
+    text: "test-ADD TO CART"
+- assertVisible: "Sauce Labs Backpack"
+- assertVisible: "Sauce Labs Bike Light"
+- tapOn:
+    point: "93%,5%"
+- scrollUntilVisible:
+    element: "test-CHECKOUT"
+    direction: down
+- tapOn: "test-CHECKOUT"
+- inputText: "Teste"
+- tapOn: "Last Name"
+- inputText: "Silveira"
+- tapOn: "Zip/Postal Code"
+- inputText: "12345"
+- tapOn: "test-CONTINUE"
+- assertVisible: "First Name is required"
+- stopApp
+
+#Comprando sem informar last name
+- launchApp
+- tapOn: "standard_user"
+- tapOn: "login"
+- assertVisible: "PRODUCTS"
+- tapOn:
+    below:
+        text: "Sauce Labs Backpack"
+    text: "test-ADD TO CART"
+- tapOn:
+    below:
+        text: "Sauce Labs Bike Light"
+    text: "test-ADD TO CART"
+- assertVisible: "Sauce Labs Backpack"
+- assertVisible: "Sauce Labs Bike Light"
+- tapOn:
+    point: "93%,5%"
+- scrollUntilVisible:
+    element: "test-CHECKOUT"
+    direction: down
+- tapOn: "test-CHECKOUT"
+- tapOn: "First Name"
+- inputText: "Teste"
+- inputText: "Silveira"
+- tapOn: "Zip/Postal Code"
+- inputText: "12345"
+- tapOn: "test-CONTINUE"
+- assertVisible: "Last Name is required"
+- stopApp
+
+#Comprando sem informar Postal code
+- launchApp
+- tapOn: "standard_user"
+- tapOn: "login"
+- assertVisible: "PRODUCTS"
+- tapOn:
+    below:
+        text: "Sauce Labs Backpack"
+    text: "test-ADD TO CART"
+- tapOn:
+    below:
+        text: "Sauce Labs Bike Light"
+    text: "test-ADD TO CART"
+- assertVisible: "Sauce Labs Backpack"
+- assertVisible: "Sauce Labs Bike Light"
+- tapOn:
+    point: "93%,5%"
+- scrollUntilVisible:
+    element: "test-CHECKOUT"
+    direction: down
+- tapOn: "test-CHECKOUT"
+- tapOn: "First Name"
+- inputText: "Teste"
+- tapOn: "Last Name"
+- inputText: "Silveira"
+- tapOn: "test-CONTINUE"
+- assertVisible: "Postal Code is required"
+- stopApp
+
+#Cancelando a compra no overview
+- launchApp
+- tapOn: "standard_user"
+- tapOn: "login"
+- assertVisible: "PRODUCTS"
+- tapOn:
+    below:
+        text: "Sauce Labs Backpack"
+    text: "test-ADD TO CART"
+- tapOn:
+    below:
+        text: "Sauce Labs Bike Light"
+    text: "test-ADD TO CART"
+- assertVisible: "Sauce Labs Backpack"
+- assertVisible: "Sauce Labs Bike Light"
+- tapOn:
+    point: "93%,5%"
+- scrollUntilVisible:
+    element: "test-CHECKOUT"
+    direction: down
+- tapOn: "test-CHECKOUT"
+- tapOn: "First Name"
+- inputText: "Teste"
+- tapOn: "Last Name"
+- inputText: "Silveira"
+- tapOn: "Zip/Postal Code"
+- inputText: "12345"
+- tapOn: "test-CONTINUE"
+- assertVisible: "CHECKOUT: OVERVIEW"
+- scrollUntilVisible:
+    element: "test-CANCEL"
+    direction: down
+- tapOn: "test-CANCEL"
+- assertVisible: "PRODUCTS"
+- stopApp

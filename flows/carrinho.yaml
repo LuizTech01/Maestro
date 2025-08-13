@@ -1,0 +1,68 @@
+appId: com.swaglabsmobileapp
+---
+
+#Adiciona item ao carrinho
+- launchApp
+- tapOn: "standard_user"
+- tapOn: "login"
+- assertVisible: "PRODUCTS"
+- tapOn:
+    below:
+        text: "Sauce Labs Backpack"
+    text: "test-ADD TO CART"
+- tapOn:
+    below:
+        text: "Sauce Labs Bike Light"
+    text: "test-ADD TO CART"
+- assertVisible: "Sauce Labs Backpack"
+- assertVisible: "Sauce Labs Bike Light"
+- tapOn:
+    point: "93%,5%"
+- stopApp
+
+#Removendo items do carrinho
+- launchApp
+- tapOn: "standard_user"
+- tapOn: "login"
+- assertVisible: "PRODUCTS"
+- tapOn:
+    below:
+        text: "Sauce Labs Backpack"
+    text: "test-ADD TO CART"
+- tapOn:
+    below:
+        text: "Sauce Labs Bike Light"
+    text: "test-ADD TO CART"
+- tapOn:
+    point: "93%,5%"
+- assertVisible: "Sauce Labs Backpack"
+- assertVisible: "Sauce Labs Bike Light"
+- tapOn:
+    text: "REMOVE"
+    index: 0
+- tapOn: "REMOVE"
+- assertNotVisible: "Sauce Labs Backpack"
+- assertNotVisible: "Sauce Labs Bike Light"
+- stopApp
+
+#Adiciona item ao carrinho e voltando para comprar mais
+- launchApp
+- tapOn: "standard_user"
+- tapOn: "login"
+- assertVisible: "PRODUCTS"
+- tapOn:
+    below:
+        text: "Sauce Labs Backpack"
+    text: "test-ADD TO CART"
+- assertVisible: "Sauce Labs Backpack"
+- tapOn:
+    point: "93%,5%"
+- tapOn: "test-CONTINUE SHOPPING"
+- tapOn:
+    below:
+        text: "Sauce Labs Bike Light"
+    text: "test-ADD TO CART"
+- assertVisible: "Sauce Labs Bike Light"
+- tapOn:
+    point: "93%,5%"
+- stopApp
